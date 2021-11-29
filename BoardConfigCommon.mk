@@ -55,6 +55,11 @@ BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_DTB_CFG := $(COMMON_PATH)/configs/kernel/exynos7885.cfg
 BOARD_DTBO_CFG := $(COMMON_PATH)/configs/kernel/$(TARGET_DEVICE).cfg
 
+# Fingerprint
+ifneq ($(TARGET_DEVICE),a30s)
+TARGET_SEC_FP_HAS_FINGERPRINT_GESTURES := true
+endif
+
 # Keymaster
 TARGET_KEYMASTER_VARIANT := samsung
 
