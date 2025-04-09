@@ -18,7 +18,6 @@ cc_library_static {
     shared_libs: ["libbase"],
     srcs: ["init_exynos7885.cpp"],
     include_dirs: [
-        "system/core/base/include",
         "system/core/init"
     ]
 }
