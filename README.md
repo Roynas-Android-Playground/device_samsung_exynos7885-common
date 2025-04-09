@@ -1,5 +1,6 @@
-# Device Trees for universal7885 unified
+# Exynos7885 Device Tree V2
 The Samsung Galaxy A10,A20,A20e,A30,A30s,A40 are budget smartphones from Samsung. These are announced and released in the year 2019.
+This supersedes Eureka Trees found in https://github.com/eurekadevelopment/android_device_samsung_exynos7885.
 
 # Device List
 - Galaxy A10 (exynos7884B)
@@ -9,7 +10,7 @@ The Samsung Galaxy A10,A20,A20e,A30,A30s,A40 are budget smartphones from Samsung
 - Galaxy A30s (exynos7904)
 - Galaxy A40 (exynos7904)
 
-# Why universal7885? isn't that another SoC made by Samsung?
+# Why exynos7885? isn't that another SoC made by Samsung?
 - Yes it is, exynos7884B and exynos7904 are 2nd and 3rd revisions of exynos7885 with lower CPU and GPU clockspeed and have newer Mali GPU drivers
 - We restored the original clock and voltage tables of exynos7885 to these phones.
 
