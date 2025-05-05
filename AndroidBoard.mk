@@ -21,10 +21,16 @@ DTB_CFG    := $(COMMON_PATH)/configs/kernel/exynos7885.cfg
 
 INSTALLED_DTBIMAGE_TARGET := $(PRODUCT_OUT)/dtb.img
 
-$(INSTALLED_DTBIMAGE_TARGET): $(PRODUCT_OUT)/kernel $(MKDTIMG)
+$(INSTALLED_DTBIMAGE_TARGET): $(PRODUCT_OUT)/kernel $(MKDTIMG) $(AVBTOOL)
 	$(hide) echo "Building dtb.img"
 	$(hide) $(MKDTIMG) cfg_create $@ $(DTB_CFG) -d $(DTB_DIR)
 	$(hide) $(call assert-max-image-size,$@,$(BOARD_DTBIMG_PARTITION_SIZE),raw)
+	$(hide) $(AVBTOOL) add_hash_footer \
+	  --image $@ \
+	  --partition_size $(BOARD_DTBIMG_PARTITION_SIZE) \
+	  --partition_name dtb \
+	  --algorithm $(BOARD_AVB_ALGORITHM) \
+	  --key $(BOARD_AVB_KEY_PATH)
 
 .PHONY: dtbimage
 dtbimage: $(INSTALLED_DTBIMAGE_TARGET)
