@@ -34,11 +34,6 @@ $(call soong_config_set,samsungCameraVars,extra_ids,50)
 endif
 $(call soong_config_set,samsungCameraVars,usage_64bit,true)
 
-# Display
-ifeq ($(call has_feature,aod),false)
-BOARD_MINIMUM_DISPLAY_BRIGHTNESS := 1
-endif
-
 # Init
 $(call soong_config_set,libinit,vendor_init_lib,//$(COMMON_PATH):libinit_exynos7885)
 
