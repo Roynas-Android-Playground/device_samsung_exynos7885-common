@@ -7,21 +7,6 @@ $(call inherit-product, hardware/samsung-ext/interfaces/debug-tools/debug.mk)
 # Soong namespaces
 $(call inherit-product, hardware/samsung_slsi-linaro/config/config.mk)
 
-## FEATURES LIST
-# fp: Fingerprint feature
-# lt: Light sensor feature
-# aod: The device has AMOLED screen, AOD feature
-# typec: Type-C port feature
-DEVICE_FEATURE_LIST_a10 := 
-DEVICE_FEATURE_LIST_a20 := fp aod typec
-DEVICE_FEATURE_LIST_a20e := fp typec
-DEVICE_FEATURE_LIST_a30 := fp lt aod typec
-DEVICE_FEATURE_LIST_a30s := fp lt aod typec
-DEVICE_FEATURE_LIST_a40 := fp lt aod typec
-define has_feature
-$(if $(filter $(1),$(DEVICE_FEATURE_LIST_$(TARGET_DEVICE))),true,false)
-endef
-
 # GMS Client Id
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
 
@@ -83,7 +68,7 @@ PRODUCT_PACKAGES += \
     vendor.lineage.fastcharge@1.0-service.samsung
 
 # Fingerprint
-ifeq ($(call has_feature, fp),true)
+ifneq ($(TARGET_DEVICE),a10)
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.3-service.samsung \
     FeatureFingerprintOverlay
@@ -91,6 +76,9 @@ PRODUCT_PACKAGES += \
 # Keylayout
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/keylayout/uinput-sec-fp.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-sec-fp.kl
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
 endif
 
 # Gatekeeper
@@ -126,12 +114,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.0-service.samsung
 
-ifeq ($(call has_feature,lt),true)
+ifneq ($(filter a30 a30s a40,$(TARGET_DEVICE)),)
 PRODUCT_PACKAGES += \
     FeatureLightSensorOverlay
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.sensor.light.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.light.xml
 endif
 
-ifeq ($(call has_feature,aod),true)
+ifneq ($(filter a20 a30 a30s a40,$(TARGET_DEVICE)),)
 PRODUCT_PACKAGES += \
     FeatureAODOverlay
 endif
@@ -218,16 +209,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.vulkan.deqp.level-2020-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
 
-ifeq ($(call has_feature,fp),true)
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
-endif
-
-ifeq ($(call has_feature,lt),true)
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.sensor.light.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.light.xml
-endif
-
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service.pixel-libperfmgr
@@ -294,7 +275,7 @@ PRODUCT_PACKAGES += \
     vendor.lineage.touch@1.0-service.ss
 
 # USB
-ifeq ($(call has_feature,typec),true)
+ifneq ($(TARGET_DEVICE),a10)
 PRODUCT_PACKAGES += android.hardware.usb-service.samsung
 else
 PRODUCT_PACKAGES += android.hardware.usb@1.3-service.basic
