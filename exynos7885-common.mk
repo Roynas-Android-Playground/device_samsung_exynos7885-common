@@ -273,11 +273,8 @@ PRODUCT_PACKAGES += \
     vendor.lineage.touch@1.0-service.ss
 
 # USB
-ifneq ($(TARGET_DEVICE),a10)
-PRODUCT_PACKAGES += android.hardware.usb-service.samsung
-else
-PRODUCT_PACKAGES += android.hardware.usb@1.3-service.basic
-endif
+PRODUCT_PACKAGES += \
+    android.hardware.usb-service.samsung
 
 # Vibrator
 PRODUCT_PACKAGES += \
