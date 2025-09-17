@@ -1,10 +1,11 @@
+#
+# SPDX-FileCopyrightText: 2025 The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
 COMMON_PATH := device/samsung/exynos7885-common
 
 BOARD_VENDOR := samsung
-
-# Platform
-TARGET_BOARD_PLATFORM := exynos7885
-TARGET_BOOTLOADER_BOARD_NAME := $(TARGET_SOC)
 
 # SLSI Linaro
 include hardware/samsung_slsi-linaro/config/BoardConfig7885.mk
@@ -34,6 +35,10 @@ $(call soong_config_set,samsungCameraVars,extra_ids,50)
 endif
 $(call soong_config_set,samsungCameraVars,usage_64bit,true)
 
+# DTBO
+BOARD_KERNEL_SEPARATED_DTBO := true
+BOARD_DTBO_CFG := $(COMMON_PATH)/configs/kernel/$(TARGET_DEVICE).cfg
+
 # Init
 $(call soong_config_set,libinit,vendor_init_lib,//$(COMMON_PATH):libinit_exynos7885)
 
@@ -56,14 +61,10 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 TARGET_KERNEL_SOURCE := kernel/samsung/exynos7885
 TARGET_KERNEL_NO_GCC := true
 
-# DTBO
-BOARD_KERNEL_SEPARATED_DTBO := true
-BOARD_DTBO_CFG := $(COMMON_PATH)/configs/kernel/$(TARGET_DEVICE).cfg
-
 # Keymaster
 $(call soong_config_set,samsungVars,target_keymaster4_library,//vendor/samsung/exynos7885-common:libskeymaster4device)
 
-# HIDL
+# Manifest
 DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := $(COMMON_PATH)/compatibility_matrix.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
@@ -76,7 +77,7 @@ else
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/manifest_touch.xml
 endif
 
-# NFC SKU
+# NFC
 ODM_MANIFEST_SKUS += NFC
 ODM_MANIFEST_NFC_FILES := $(COMMON_PATH)/manifest_nfc.xml
 
@@ -88,8 +89,13 @@ BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072
+TARGET_COPY_OUT_VENDOR := vendor
 
 BOARD_USES_METADATA_PARTITION := true
+
+# Platform
+TARGET_BOARD_PLATFORM := exynos7885
+TARGET_BOOTLOADER_BOARD_NAME := $(TARGET_SOC)
 
 # Properties
 TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
@@ -121,9 +127,6 @@ SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
 # UFFD GC
 OVERRIDE_ENABLE_UFFD_GC := false
 
-# Vendor
-TARGET_COPY_OUT_VENDOR := vendor
-
 # Vibrator
 $(call soong_config_set,samsungVibratorVars,duration_amplitude,true)
 
@@ -136,4 +139,3 @@ BOARD_HOSTAPD_DRIVER             := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
-

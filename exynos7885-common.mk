@@ -1,3 +1,8 @@
+#
+# SPDX-FileCopyrightText: 2025 The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+
 # Call proprietary blob setup
 $(call inherit-product, vendor/samsung/exynos7885-common/exynos7885-common-vendor.mk)
 
@@ -15,13 +20,14 @@ TARGET_EXCLUDES_AUDIOFX := true
 
 PRODUCT_PACKAGES += \
     android.hardware.audio@7.0-impl \
-    android.hardware.audio.service \
     android.hardware.audio.effect@7.0-impl \
+    android.hardware.audio.service \
+    android.hardware.bluetooth.audio-impl \
+    audio.bluetooth.default \
     audio.r_submix.default \
     audio.usb.default \
     SamsungDAP
 
-# Audio Configs
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/bluetooth_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
@@ -34,8 +40,6 @@ PRODUCT_COPY_FILES += \
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.1-service \
-    android.hardware.bluetooth.audio-impl \
-    audio.bluetooth.default \
     libbt-vendor
 
 PRODUCT_COPY_FILES += \
@@ -96,6 +100,21 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.0-service.samsung
 
 # Media
+PRODUCT_PACKAGES += \
+    libstagefrighthw \
+    libExynosOMX_Core \
+    libExynosOMX_Resourcemanager \
+    libOMX.Exynos.AVC.Decoder \
+    libOMX.Exynos.AVC.Encoder \
+    libOMX.Exynos.HEVC.Decoder \
+    libOMX.Exynos.HEVC.Encoder \
+    libOMX.Exynos.MPEG4.Decoder \
+    libOMX.Exynos.MPEG4.Encoder \
+    libOMX.Exynos.VP8.Decoder \
+    libOMX.Exynos.VP8.Encoder \
+    libOMX.Exynos.VP9.Decoder \
+    libOMX.Exynos.WMV.Decoder
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
     $(LOCAL_PATH)/configs/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
@@ -115,24 +134,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
-
-# OMX
-PRODUCT_PACKAGES += \
-    libstagefrighthw \
-    libExynosOMX_Core \
-    libExynosOMX_Resourcemanager \
-    libOMX.Exynos.AVC.Decoder \
-    libOMX.Exynos.AVC.Encoder \
-    libOMX.Exynos.HEVC.Decoder \
-    libOMX.Exynos.HEVC.Encoder \
-    libOMX.Exynos.MPEG4.Decoder \
-    libOMX.Exynos.MPEG4.Encoder \
-    libOMX.Exynos.VP8.Decoder \
-    libOMX.Exynos.VP8.Encoder \
-    libOMX.Exynos.VP9.Decoder \
-    libOMX.Exynos.WMV.Decoder
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay \
+    $(LOCAL_PATH)/overlay-lineage
 
 # Permissions
 PRODUCT_COPY_FILES += \
