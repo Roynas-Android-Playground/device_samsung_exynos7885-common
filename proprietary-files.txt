@@ -57,13 +57,11 @@ vendor/lib/liboemcrypto.so
 vendor/lib/libwvhidl.so
 
 # GNSS
+vendor/etc/init/init.gps.rc
 vendor/etc/gnss/ca.pem
 vendor/etc/gnss/gps.cfg
 vendor/etc/gnss/gps.debug.cfg
 vendor/lib64/vendor.samsung.hardware.gnss@2.0.so
-
-# GNSS - From A307FNXXU2ASL1
-vendor/etc/init/init.gps.rc
 
 # Keymaster
 vendor/lib64/libkeymaster_helper.so

@@ -60,9 +60,12 @@ fi
 
 function blob_fixup() {
     case "${1}" in
-        vendor/lib*/libsensorlistener.so)
-            "${PATCHELF}" --add-needed "libshim_sensorndkbridge.so" "${2}"
-            ;;
+	vendor/etc/init/init.gps.rc)
+	    sed -i 's|vendor/bin/hw/gps.sh|vendor/bin/hw/gpsd -c /vendor/etc/gnss/gps.cfg|' "${2}"
+	    ;;
+	vendor/lib*/libsensorlistener.so)
+	    "${PATCHELF}" --add-needed "libshim_sensorndkbridge.so" "${2}"
+	    ;;
 	vendor/lib/libaudio_soundtrigger.so | vendor/lib/soundfx/libaudioeffectoffload.so | vendor/lib/libaudioroute.exynos7885.so)
 	    "$PATCHELF" --replace-needed libtinyalsa.so libtinyalsa.exynos7885.so "$2"
 	    ;;
@@ -77,8 +80,8 @@ function blob_fixup() {
 	    mv "${2}".patched "${2}"
 	    ;;
 	vendor/lib*/libskeymaster4device.so | vendor/lib*/libkeymaster_helper.so)
-            "${PATCHELF}" --replace-needed libcrypto.so libcrypto-v33.so "${2}"
-            ;;
+	    "${PATCHELF}" --replace-needed libcrypto.so libcrypto-v33.so "${2}"
+	    ;;
 	vendor/lib/libwvhidl.so | vendor/lib/mediadrm/libwvdrmengine.so)
 	    "$PATCHELF" --add-needed libcrypto_shim.so "$2"
 	    ;;
