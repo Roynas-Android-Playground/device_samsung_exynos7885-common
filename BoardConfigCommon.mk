@@ -60,11 +60,6 @@ TARGET_KERNEL_NO_GCC := true
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_DTBO_CFG := $(COMMON_PATH)/configs/kernel/$(TARGET_DEVICE).cfg
 
-# Fingerprint
-ifneq ($(TARGET_DEVICE),a30s)
-TARGET_SEC_FP_HAS_FINGERPRINT_GESTURES := true
-endif
-
 # Keymaster
 $(call soong_config_set,samsungVars,target_keymaster4_library,//vendor/samsung/exynos7885-common:libskeymaster4device)
 
