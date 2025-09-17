@@ -7,9 +7,6 @@ $(call inherit-product, hardware/samsung-ext/interfaces/debug-tools/debug.mk)
 # Soong namespaces
 $(call inherit-product, hardware/samsung_slsi-linaro/config/config.mk)
 
-# GMS Client Id
-PRODUCT_GMS_CLIENTID_BASE := android-samsung
-
 # OTA
 AB_OTA_UPDATER := false
 
