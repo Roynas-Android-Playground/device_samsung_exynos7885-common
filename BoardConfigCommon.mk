@@ -70,6 +70,12 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     hardware/samsung/vintf/samsung_framework_compatibility_matrix.xml \
     vendor/lineage/config/device_framework_matrix.xml
 
+ifneq ($(filter a30,$(TARGET_DEVICE)),)
+DEVICE_MANIFEST_FILE += $(COMMON_PATH)/manifest_touch_tsgesture.xml
+else
+DEVICE_MANIFEST_FILE += $(COMMON_PATH)/manifest_touch.xml
+endif
+
 # NFC SKU
 ODM_MANIFEST_SKUS += NFC
 ODM_MANIFEST_NFC_FILES := $(COMMON_PATH)/manifest_nfc.xml
