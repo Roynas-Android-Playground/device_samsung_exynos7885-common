@@ -48,7 +48,9 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider-service_32.samsung
+    android.hardware.camera.provider-service_32.samsung \
+    libGrallocWrapper:32 \
+    libhwjpeg:32
 
 # Charger
 PRODUCT_PACKAGES += \
