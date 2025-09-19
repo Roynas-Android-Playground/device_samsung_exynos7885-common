@@ -78,10 +78,6 @@ vendor/firmware/calliope_sram.bin
 vendor/lib/egl/libGLES_mali.so;SYMLINK=vendor/lib/libOpenCL.so;SYMLINK=vendor/lib/libOpenCL.so.1;SYMLINK=vendor/lib/libOpenCL.so.1.1;SYMLINK=vendor/lib/hw/vulkan.exynos7885.so
 vendor/lib64/egl/libGLES_mali.so;SYMLINK=vendor/lib64/libOpenCL.so;SYMLINK=vendor/lib64/libOpenCL.so.1;SYMLINK=vendor/lib64/libOpenCL.so.1.1;SYMLINK=vendor/lib64/hw/vulkan.exynos7885.so
 
-# Media
-vendor/etc/media_codecs_performance.xml
-vendor/etc/media_profiles_V1_0.xml
-
 # SEC
 vendor/lib/libfloatingfeature.so
 vendor/lib/libsecnativefeature.so
