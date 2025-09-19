@@ -79,7 +79,7 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.mapper@2.0-impl-2.1 \
     android.hardware.composer.hwc3-service.slsi \
-    gralloc.exynos7885
+    gralloc.$(TARGET_SOC)
 
 # Health
 PRODUCT_PACKAGES += \
