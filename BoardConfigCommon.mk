@@ -35,6 +35,9 @@ $(call soong_config_set,samsungCameraVars,extra_ids,50)
 endif
 $(call soong_config_set,samsungCameraVars,usage_64bit,true)
 
+# Display
+BOARD_MINIMUM_DISPLAY_BRIGHTNESS := 1
+
 # DTBO
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_DTBO_CFG := $(COMMON_PATH)/configs/kernel/$(TARGET_DEVICE).cfg
