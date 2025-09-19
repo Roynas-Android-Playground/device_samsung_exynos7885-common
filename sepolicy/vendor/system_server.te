@@ -9,9 +9,6 @@ get_prop(system_server, exported_camera_prop)
 get_prop(system_server, userspace_reboot_config_prop)
 get_prop(system_server, userspace_reboot_exported_prop)
 
-r_file_recursive(system_server, sysfs_sec_switch)
-r_file_recursive(system_server, sysfs_sec_switch_writable)
-
 allow system_server self:capability sys_module;
 allow system_server shell:unix_stream_socket getopt;
 allow system_server cgroup:dir { create setattr };
