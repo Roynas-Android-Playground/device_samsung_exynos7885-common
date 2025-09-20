@@ -10,7 +10,7 @@ BOARD_VENDOR := samsung
 # SLSI Linaro
 include hardware/samsung_slsi-linaro/config/BoardConfig7885.mk
 
-$(call soong_config_set,libhwjpeg,BOARD_HWJPEG_ANDROID_VERSION,11)
+BOARD_HWJPEG_ANDROID_VERSION := 11
 
 # Architecture
 TARGET_ARCH := arm64
