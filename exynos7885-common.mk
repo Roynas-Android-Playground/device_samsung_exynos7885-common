@@ -97,6 +97,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.exynos7885:$(TARGET_COPY_OUT_RAMDISK)/vendor/etc/fstab.$(TARGET_SOC)
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/init.exynos7885.usb.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.usb.rc \
+    $(LOCAL_PATH)/rootdir/etc/init.recovery.exynos7885.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.$(TARGET_SOC).rc
+
 # Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.0-service.samsung
