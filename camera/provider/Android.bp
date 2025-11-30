@@ -13,9 +13,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+soong_config_module_type {
+    name: "extra_ids",
+    module_type: "cc_defaults",
+    config_namespace: "exynos7885CameraVars",
+    value_variables: ["extra_ids"],
+    properties: ["cppflags"],
+}
+
+extra_ids {
+    name: "extra_id_defaults",
+    soong_config_variables: {
+        extra_ids: {
+            cppflags: ["-DEXTRA_IDS=%s"],
+        },
+    },
+}
+
 cc_binary {
     name: "android.hardware.camera.provider@2.5-service.exynos7885",
     defaults: [
+        "extra_id_defaults",
         "hidl_defaults",
     ],
     compile_multilib: "32",
