@@ -32,7 +32,12 @@ def AddImage(info, dir, basename, dest):
   info.script.Print("Patching {} image unconditionally...".format(dest.split('/')[-1]))
   info.script.AppendExtra('package_extract_file("%s", "%s");' % (basename, dest))
 
+def AddFlash(info, basename, dest):
+  info.script.Print("Patching {} image unconditionally...".format(dest.split('/')[-1]))
+  info.script.AppendExtra('package_extract_file("%s", "%s");' % (basename, dest))
+
 def OTA_InstallEnd(info):
   AddImage(info, "RADIO", "dtb.img", "/dev/block/by-name/dtb")
   AddImage(info, "IMAGES", "dtbo.img", "/dev/block/by-name/dtbo")
+  AddFlash(info, "recovery.img", "/dev/block/by-name/recovery")
   return
