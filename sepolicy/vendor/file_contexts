@@ -12,6 +12,9 @@
 # camera
 /dev/m2m1shot_scaler0                                       u:object_r:m2m1shot_device:s0
  
+# touchscreen
+/sys/class/sec/tsp/input(/.*)?                              u:object_r:sysfs_touchscreen_writable:s0
+
 # DRM
 /dev/s5p-smem                                               u:object_r:drm_device:s0
 
