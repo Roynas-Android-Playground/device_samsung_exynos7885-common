@@ -223,8 +223,7 @@ PRODUCT_PACKAGES += \
 
 # Samsung Ext
 PRODUCT_PACKAGES += \
-    FlashControl \
-    SmartCharge
+    FlashControl
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
