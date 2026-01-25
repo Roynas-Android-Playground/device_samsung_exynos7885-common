@@ -129,7 +129,7 @@ SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
 OVERRIDE_ENABLE_UFFD_GC := false
 
 # Vibrator
-$(call soong_config_set,samsungVibratorVars,duration_amplitude,true)
+$(call soong_config_set_bool,samsungVibratorVars,duration_amplitude,true)
 
 # Wifi
 BOARD_WLAN_DEVICE                := slsi
