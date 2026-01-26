@@ -12,6 +12,9 @@ $(call inherit-product, hardware/samsung-ext/interfaces/debug-tools/debug.mk)
 # Soong namespaces
 $(call inherit-product, hardware/samsung_slsi-linaro/config/config.mk)
 
+# Enable casefolding
+$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
+
 # OTA
 AB_OTA_UPDATER := false
 
