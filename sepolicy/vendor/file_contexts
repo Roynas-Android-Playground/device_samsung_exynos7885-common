@@ -52,6 +52,9 @@
 /data/vendor/mediadrm(/.*)?                                 u:object_r:mediadrm_data_file:s0
 /data/vendor/yas_lib(/.*)?                                  u:object_r:sensors_data_file:s0
 
+# Loop Devices
+/dev/block/loop.*                           u:object_r:loop_device:s0
+
 ####################################
 ### VENDOR
 # Exynos7884'B'
@@ -59,3 +62,4 @@
 
 /(vendor|system/vendor)/bin/hw/android\.hardware\.camera\.provider@[0-9]\.[0-9]-service(_64)?\.exynos7885  u:object_r:hal_camera_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.sensors@[0-9]\.[0-9]-service\.exynos7885              u:object_r:hal_sensors_default_exec:s0
+

@@ -10,3 +10,4 @@ allow hal_wifi_default mnt_vendor_file:dir search;
 
 # vendor.wlan.firmware.
 set_prop(hal_wifi_default, vendor_wifi_prop)
+get_prop(hal_wifi_default, persist_vendor_debug_wifi_prop)

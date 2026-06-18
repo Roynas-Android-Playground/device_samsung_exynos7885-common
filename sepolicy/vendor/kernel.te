@@ -6,3 +6,7 @@ allow kernel block_device:dir search;
 # Hall IC
 allow kernel sysfs_sec_key:dir search;
 allow kernel sysfs_sec_key:file { open read };
+
+allow kernel loop_device:blk_file create;
+
+dontaudit kernel device:blk_file create;

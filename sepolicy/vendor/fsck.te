@@ -1,2 +1,5 @@
 allow fsck efs_block_device:blk_file rw_file_perms;
 allow fsck omr_block_device:blk_file rw_file_perms;
+allow fsck sysfs_battery:dir search;
+allow fsck sysfs_mmc:dir search;
+allow fsck sysfs_mmc:file getattr;

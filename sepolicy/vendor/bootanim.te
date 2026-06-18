@@ -1,1 +1,4 @@
 get_prop(bootanim, userspace_reboot_exported_prop) 
+
+typeattribute bootanim data_between_core_and_vendor_violators;
+allow bootanim system_data_file:dir search;

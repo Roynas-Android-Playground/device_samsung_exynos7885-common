@@ -7,3 +7,5 @@ allow init socket_device:sock_file create_file_perms;
 # dirty_background_bytes, dirty_bytes
 # Better than sperately labeling it?
 allow init proc:file write;
+
+allow init efs_file:lnk_file read;

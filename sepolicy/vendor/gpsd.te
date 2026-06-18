@@ -4,9 +4,14 @@ allow gpsd sysfs_socinfo:file r_file_perms;
 allow gpsd self:capability net_raw;
 allow gpsd self:capability2 block_suspend;
 
+typeattribute gpsd data_between_core_and_vendor_violators;
+allow gpsd system_data_file:dir search;
+
 allow gpsd bt_device:chr_file rw_file_perms;
 allow gpsd gps_device:chr_file rw_file_perms;
 allow gpsd gpsd_exec:file execute_no_trans;
+
+binder_use(gpsd)
 
 get_prop(gpsd, exported_config_prop)
 get_prop(gpsd, bootanim_system_prop)

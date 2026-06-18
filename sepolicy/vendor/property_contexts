@@ -39,3 +39,16 @@ ro.factory.factory_binary    u:object_r:vendor_factory_prop:s0
 
 # Wlan
 vendor.wlan.                 u:object_r:vendor_wifi_prop:s0
+
+# IMS
+persist.dbg.allow_ims_off     u:object_r:vendor_radio_prop:s0
+
+# Surfaceflinger
+ro.sf.       u:object_r:vendor_default_prop:s0
+
+# Launcher
+ro.launcher.blur.appLaunch      u:object_r:vendor_default_prop:s0
+
+# GNSS
+dev.gnss.silentlogging          u:object_r:vendor_default_prop:s0
+dev.gnss.silentloggingIssueTracker u:object_r:vendor_default_prop:s0
