@@ -1,0 +1,2 @@
+# FM radio device node shared with the system_ext FM service.
+type fmradio_device, dev_type;

@@ -1,0 +1,16 @@
+type fmradio_daemon, domain, coredomain;
+type fmradio_daemon_exec, exec_type, system_file_type, file_type;
+
+init_daemon_domain(fmradio_daemon)
+binder_use(fmradio_daemon)
+add_service(fmradio_daemon, fmradio_binder_service)
+
+# Samsung S610 V4L2 tuner.
+allow fmradio_daemon fmradio_device:chr_file rw_file_perms;
+
+# Exynos FM routing is controlled through AudioSystem.
+allow fmradio_daemon audioserver_service:service_manager find;
+binder_call(fmradio_daemon, audioserver)
+
+# The app controls the daemon and receives callback transactions.
+binder_call(fmradio_daemon, fmradio_app)

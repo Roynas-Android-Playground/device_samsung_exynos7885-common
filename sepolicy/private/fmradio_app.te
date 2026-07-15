@@ -1,0 +1,6 @@
+type fmradio_app, domain, coredomain;
+
+app_domain(fmradio_app)
+
+allow fmradio_app fmradio_binder_service:service_manager find;
+binder_call(fmradio_app, fmradio_daemon)

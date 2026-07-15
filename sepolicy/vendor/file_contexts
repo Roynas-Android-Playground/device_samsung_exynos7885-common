@@ -7,6 +7,7 @@
 /dev/goodix_fp                                              u:object_r:fp_sensor_device:s0
 /dev/gnss_ipc                                               u:object_r:gps_device:s0
 /dev/scsc_h4_0                                              u:object_r:bt_device:s0
+/dev/radio0                                                u:object_r:fmradio_device:s0
 /dev/cpuset(/.*)?                                           u:object_r:cgroup:s0
 
 # camera

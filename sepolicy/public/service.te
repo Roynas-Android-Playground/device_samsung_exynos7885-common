@@ -1,0 +1,2 @@
+# Stable Binder service published by the FM radio daemon.
+type fmradio_binder_service, service_manager_type;
