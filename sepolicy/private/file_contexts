@@ -1,1 +1,1 @@
-/system_ext/bin/hw/miku\.dayo\.hardware\.fmradio-service    u:object_r:fmradio_daemon_exec:s0
+(/system)?/system_ext/bin/hw/miku\.dayo\.hardware\.fmradio-service    u:object_r:fmradio_daemon_exec:s0
