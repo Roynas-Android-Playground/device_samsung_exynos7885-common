@@ -2,5 +2,11 @@ type fmradio_app, domain, coredomain;
 
 app_domain(fmradio_app)
 
+# Platform-signed applications need the normal framework API service baseline
+# to attach to ActivityManager and use notifications, audio focus, and
+# MediaSession. Keep access to the private FM Binder service explicit below.
+allow fmradio_app app_api_service:service_manager find;
+allow fmradio_app system_api_service:service_manager find;
+
 allow fmradio_app fmradio_binder_service:service_manager find;
 binder_call(fmradio_app, fmradio_daemon)
