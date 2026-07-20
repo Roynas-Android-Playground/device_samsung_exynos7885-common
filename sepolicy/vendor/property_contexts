@@ -49,6 +49,9 @@ ro.sf.       u:object_r:vendor_default_prop:s0
 # Launcher
 ro.launcher.blur.appLaunch      u:object_r:vendor_default_prop:s0
 
+# IMSv2
+vendor.ril.ims.                 u:object_r:vendor_ims_prop:s0
+
 # GNSS
 dev.gnss.silentlogging          u:object_r:vendor_default_prop:s0
 dev.gnss.silentloggingIssueTracker u:object_r:vendor_default_prop:s0

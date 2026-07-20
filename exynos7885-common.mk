@@ -24,6 +24,17 @@ TARGET_EXCLUDES_AUDIOFX := true
 # GMS
 TARGET_USES_MINI_GAPPS := true
 
+# IMS over Wi-Fi data service and network qualification service.
+# These are also useful for VoLTE-only bring-up because the telephony
+# framework still expects the WLAN data/network service hooks to exist.
+PRODUCT_PACKAGES += \
+    Iwlan \
+    QualifiedNetworksService \
+    PhhIms
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/privapp-permissions-me.phh.ims.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-me.phh.ims.xml
+
 PRODUCT_PACKAGES += \
     android.hardware.audio@7.0-impl:32 \
     android.hardware.audio.effect@7.0-impl:32 \

@@ -226,6 +226,14 @@
    <integer name="config_autoBrightnessBrighteningLightDebounce">2000</integer>
    <integer name="config_autoBrightnessDarkeningLightDebounce">4000</integer>
 
+   <!-- Krazey's VoLTE IMS configuration -->
+   <bool name="config_carrier_volte_available">true</bool>
+   <bool name="config_device_volte_available">true</bool>
+   <bool name="config_device_vt_available">true</bool>
+   <string name="config_wlan_data_service_package">com.google.android.iwlan</string>
+   <string name="config_wlan_network_service_package">com.google.android.iwlan</string>
+   <string name="config_qualified_networks_service_package">com.android.telephony.qns</string>
+
    <!-- Array of desired screen brightness in nits corresponding to the lux values
         in the config_autoBrightnessLevels array. As with config_screenBrightnessMinimumNits and
         config_screenBrightnessMaximumNits, the display brightness is defined as the measured
