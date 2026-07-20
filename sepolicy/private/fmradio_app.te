@@ -7,6 +7,8 @@ app_domain(fmradio_app)
 # MediaSession. Keep access to the private FM Binder service explicit below.
 allow fmradio_app app_api_service:service_manager find;
 allow fmradio_app system_api_service:service_manager find;
+# AudioManager requests audio focus through media.audio_policy.
+allow fmradio_app audioserver_service:service_manager find;
 
 allow fmradio_app fmradio_binder_service:service_manager find;
 binder_call(fmradio_app, fmradio_daemon)
