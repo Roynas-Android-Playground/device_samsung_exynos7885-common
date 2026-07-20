@@ -8,9 +8,11 @@ add_service(fmradio_daemon, fmradio_binder_service)
 # Samsung S610 V4L2 tuner.
 allow fmradio_daemon fmradio_device:chr_file rw_file_perms;
 
-# Exynos FM routing is controlled through AudioSystem.
+# Exynos FM routing is controlled through AudioSystem. AudioPolicy sends
+# synchronous callbacks to the client while force-use state changes.
 allow fmradio_daemon audioserver_service:service_manager find;
 binder_call(fmradio_daemon, audioserver)
+binder_call(audioserver, fmradio_daemon)
 
 # The app controls the daemon and receives callback transactions.
 binder_call(fmradio_daemon, fmradio_app)
