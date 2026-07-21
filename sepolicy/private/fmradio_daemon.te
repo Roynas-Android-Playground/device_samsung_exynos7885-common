@@ -9,9 +9,14 @@ add_service(fmradio_daemon, fmradio_binder_service)
 allow fmradio_daemon fmradio_device:chr_file rw_file_perms;
 
 # Exynos FM routing is controlled through AudioSystem. AudioPolicy sends
-# synchronous callbacks to the client while force-use state changes.
+# synchronous callbacks to the client while force-use state changes. The
+# silent fast-track route primer also registers with framework audio and media
+# metrics services.
 allow fmradio_daemon audioserver_service:service_manager find;
+allow fmradio_daemon audio_service:service_manager find;
+allow fmradio_daemon mediametrics_service:service_manager find;
 binder_call(fmradio_daemon, audioserver)
+binder_call(fmradio_daemon, mediametrics)
 binder_call(audioserver, fmradio_daemon)
 
 # The app controls the daemon and receives callback transactions.
