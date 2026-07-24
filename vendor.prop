@@ -1,6 +1,3 @@
-## FRP
-ro.frp.pst=/dev/block/platform/13500000.dwmmc0/by-name/persistent
-
 ## OMX
 # Set csc support in OMX
 # If not set or set to 0, OMX will only use BT.601 colorspace.
