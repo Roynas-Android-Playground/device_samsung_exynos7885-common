@@ -223,6 +223,9 @@
    <integer name="config_autoBrightnessBrighteningLightDebounce">2000</integer>
    <integer name="config_autoBrightnessDarkeningLightDebounce">4000</integer>
 
+   <!-- Disable app launch blur -->
+   <bool name="config_enableAppLaunchBlur">false</bool>
+
    <!-- Krazey's VoLTE IMS configuration -->
    <bool name="config_carrier_volte_available">true</bool>
    <bool name="config_device_volte_available">true</bool>
