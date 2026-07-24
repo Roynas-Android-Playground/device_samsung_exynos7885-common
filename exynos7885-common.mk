@@ -134,6 +134,8 @@ $(call soong_config_set,lineage_health,fast_charge_value_none,1)
 $(call soong_config_set,lineage_health,fast_charge_value_fast_charge,0)
 endif
 
+$(call soong_config_set_bool,libui,legacy_gralloc,true)
+
 # Media
 PRODUCT_PACKAGES += \
     libstagefrighthw \
