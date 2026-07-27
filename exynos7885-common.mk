@@ -67,7 +67,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.5-service.exynos7885 \
     libGrallocWrapper:32 \
-    libhwjpeg:32
+    libhwjpeg:32 \
+    libshim_camera:32
 
 # Charger
 PRODUCT_PACKAGES += \
