@@ -2,6 +2,7 @@
 allow mediacodec sysfs_v4l_mfc:dir search;
 allow mediacodec sysfs_v4l_mfc:file r_file_perms;
 allow mediacodec m2m1shot_device:chr_file rw_file_perms;
+allow mediacodec dmabuf_system_secure_heap_device:chr_file r_file_perms;
 
 hal_client_domain(mediacodec, hal_power)
 hal_client_domain(mediacodec, hal_omx)

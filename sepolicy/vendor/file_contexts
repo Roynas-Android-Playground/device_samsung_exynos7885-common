@@ -1,6 +1,9 @@
 ####################################
 # Devices
 /dev/mali[0-9]*                                             u:object_r:gpu_device:s0
+/dev/dma_heap/(crypto|vframe|vscaler|gpu_crc|camera|secure_camera|ext_ui)(-uncached)? u:object_r:dmabuf_system_heap_device:s0
+/dev/dma_heap/(crypto|vframe|vscaler|gpu_crc|camera|secure_camera|ext_ui)-secure u:object_r:dmabuf_system_secure_heap_device:s0
+/dev/dma_heap/system-secure-.*                             u:object_r:dmabuf_system_secure_heap_device:s0
 /dev/umts_ipc0                                              u:object_r:radio_device:s0
 /dev/fimg2d                                                 u:object_r:video_device:s0
 /dev/esfp0                                                  u:object_r:fp_sensor_device:s0
