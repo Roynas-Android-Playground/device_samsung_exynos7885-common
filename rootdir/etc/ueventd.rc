@@ -1,5 +1,4 @@
 /dev/mali0                0666   system     system
-/dev/ion                  0666   system     system
 /dev/dma_heap/crypto*     0444   system     system
 /dev/dma_heap/vframe*     0444   system     system
 /dev/dma_heap/vscaler*    0444   system     system
