@@ -63,6 +63,11 @@ function blob_fixup() {
 	vendor/etc/init/init.gps.rc)
 	    sed -i 's|vendor/bin/hw/gps.sh|vendor/bin/hw/gpsd -c /vendor/etc/gnss/gps.cfg|' "${2}"
 	    ;;
+	vendor/lib/libexynoscamera3.so)
+	    "${PATCHELF}" --add-needed "libshim_camera.so" "${2}"
+	    xxd -p -c0 "${2}" | sed "s/5f5a4e37616e64726f69643546656e6365/5f5a4e376578796e6f73353546656e6365/g" | xxd -r -p > "${2}".patched
+	    mv "${2}".patched "${2}"
+	    ;;
 	vendor/lib*/libsensorlistener.so)
 	    "${PATCHELF}" --add-needed "libshim_sensorndkbridge.so" "${2}"
 	    ;;
