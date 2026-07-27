@@ -1,0 +1,13 @@
+cc_library_shared {
+    name: "libshim_camera",
+
+    srcs: ["Fence.cpp"],
+    compile_multilib: "32",
+
+    shared_libs: [
+        "libcutils",
+        "libsync",
+        "libutils",
+    ],
+    vendor: true,
+}
