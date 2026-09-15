@@ -99,6 +99,9 @@ PRODUCT_PACKAGES += \
     android.hardware.health-service.samsung \
     android.hardware.health-service.samsung-recovery
 
+# IMS
+$(call inherit-product-if-exists, hardware/lineage/generic-ims/ims.mk)
+
 # Init
 PRODUCT_PACKAGES += \
     init.$(TARGET_SOC).rc \
