@@ -1,0 +1,9 @@
+cc_library_shared {
+    name: "libshim_ion",
+
+    srcs: ["ion.c"],
+    compile_multilib: "32",
+
+    shared_libs: ["liblog"],
+    vendor: true,
+}
