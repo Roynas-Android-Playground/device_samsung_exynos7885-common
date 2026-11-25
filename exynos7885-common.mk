@@ -18,22 +18,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 # OTA
 AB_OTA_UPDATER := false
 
-# Audio
-TARGET_EXCLUDES_AUDIOFX := true
-
 # GMS
 TARGET_USES_MINI_GAPPS := true
 
-# IMS over Wi-Fi data service and network qualification service.
-# These are also useful for VoLTE-only bring-up because the telephony
-# framework still expects the WLAN data/network service hooks to exist.
-PRODUCT_PACKAGES += \
-    Iwlan \
-    QualifiedNetworksService \
-    PhhIms
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/privapp-permissions-me.phh.ims.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-me.phh.ims.xml
+# Audio
+TARGET_EXCLUDES_AUDIOFX := true
 
 PRODUCT_PACKAGES += \
     android.hardware.audio@7.0-impl:32 \
