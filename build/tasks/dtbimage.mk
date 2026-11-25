@@ -20,4 +20,7 @@ $(INSTALLED_DTBIMAGE_TARGET): $(PRODUCT_OUT)/kernel $(MKDTBOIMG)
 dtbimage: $(INSTALLED_DTBIMAGE_TARGET)
 
 INSTALLED_RADIOIMAGE_TARGET += $(INSTALLED_DTBIMAGE_TARGET)
+
+# Tasks are included after the target-files prerequisites are expanded.
+$(BUILT_TARGET_FILES_DIR): $(INSTALLED_DTBIMAGE_TARGET)
 endif
