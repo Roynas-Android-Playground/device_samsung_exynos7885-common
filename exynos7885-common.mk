@@ -249,10 +249,13 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/google/interfaces \
     hardware/google/pixel \
+    hardware/google/pixel/power-libperfmgr \
+    hardware/google/pixel/thermal \
     hardware/samsung \
     bootable/deprecated-ota \
     hardware/samsung_slsi-linaro/exynos/gralloc/gralloc3 \
-    hardware/samsung_slsi/libbt
+    hardware/samsung_slsi/libbt \
+    hardware/samsung_slsi/scsc_wifibt/wpa_supplicant_lib
 
 # Task profiles
 PRODUCT_COPY_FILES += \
