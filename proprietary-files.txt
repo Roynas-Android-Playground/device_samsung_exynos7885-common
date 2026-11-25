@@ -32,7 +32,7 @@ vendor/lib/camera.device@3.5-impl.so
 vendor/bin/tzdaemon
 vendor/bin/tzts_daemon
 vendor/etc/init/teegris_v3.rc
-vendor/lib/libteecl.so;MODULE_SUFFIX=_exynos7885
+vendor/lib/libteecl.so
 vendor/lib/libuuid.so;MODULE_SUFFIX=_vendor
 vendor/lib64/libiwt.so
 vendor/lib64/libteecl.so

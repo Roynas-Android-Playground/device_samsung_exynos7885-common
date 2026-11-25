@@ -31,13 +31,8 @@ def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
     return f'{lib}_{partition}' if partition == 'vendor' else None
 
 
-def lib_fixup_soc_suffix(lib: str, partition: str, *args, **kwargs):
-    return f'{lib}_exynos7885' if partition == 'vendor' else None
-
-
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
-    'libteecl': lib_fixup_soc_suffix,
     'libuuid': lib_fixup_vendor_suffix,
 }
 
