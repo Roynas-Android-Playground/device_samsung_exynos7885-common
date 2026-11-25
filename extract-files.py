@@ -47,12 +47,6 @@ blob_fixups: blob_fixups_user_type = {
             r'vendor/bin/hw/gps\.sh',
             'vendor/bin/hw/gpsd -c /vendor/etc/gnss/gps.cfg',
         ),
-    'vendor/lib/libexynoscamera3.so': blob_fixup()
-        .add_needed('libshim_camera.so')
-        .binary_regex_replace(
-            re.escape(b'_ZN7android5Fence'),
-            b'_ZN7exynos55Fence',
-        ),
     (
         'vendor/lib/libsensorlistener.so',
         'vendor/lib64/libsensorlistener.so',
