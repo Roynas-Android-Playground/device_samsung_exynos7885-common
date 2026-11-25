@@ -36,6 +36,7 @@ endif
 
 # Display
 BOARD_MINIMUM_DISPLAY_BRIGHTNESS := 1
+$(call soong_config_set_bool,libui,legacy_gralloc,true)
 
 # DTBO
 BOARD_KERNEL_SEPARATED_DTBO := true
