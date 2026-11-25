@@ -17,6 +17,9 @@ on init
     write /proc/sys/vm/page-cluster 0
     write /proc/sys/vm/swappiness 100
 
+    # Widen the kswapd watermark gap so lmkd sees memory pressure
+    write /proc/sys/vm/watermark_scale_factor 150
+
     ## SCSC WLAN
     # SD-755: Increase default socket rx buffer limit
     write /proc/sys/net/core/rmem_default 327680
